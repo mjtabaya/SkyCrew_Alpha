@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20180709054228) do
     t.integer "captain_id"
     t.string "name"
     t.string "race"
-    t.string "class"
+    t.string "profession"
     t.decimal "base_attack"
     t.decimal "base_defense"
     t.string "state"

@@ -4,7 +4,7 @@ class CreateSkyfarers < ActiveRecord::Migration[5.1]
       t.integer :captain_id
       t.string :name
       t.string :race
-      t.string :class
+      t.string :profession
       t.decimal :base_attack
       t.decimal :base_defense
       t.string :state
