@@ -1,11 +1,22 @@
-<h1>Sky Crew App - Home</h1>
-<br>
-  <a href="/users">Users</a>
-<br>
-  <a href="/captains">Captains</a>
-<br>
-  <a href="/skyfarers">Skyfarers</a>
-<br>
-  <a href="/weapons">Weapons</a>
-<br>
-  <a href="/arsenals">Arsenals</a>
+<% provide(:title, "Home") %>
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title><%= yield(:title) %> | SkyCrew - Alpha </title>
+  </head>
+
+  <body>
+      <a href="/users">Users</a>
+    <br>
+      <a href="/captains">Captains</a>
+    <br>
+      <a href="/skyfarers">Skyfarers</a>
+    <br>
+      <a href="/weapons">Weapons</a>
+    <br>
+      <a href="/arsenals">Arsenals</a>
+  </body>
+
+</html>

@@ -10,52 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180709054228) do
-
-  create_table "arsenals", force: :cascade do |t|
-    t.integer "captain_id"
-    t.integer "skyfarer_id"
-    t.integer "weapon_id"
-    t.boolean "equipped"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["captain_id", "weapon_id"], name: "index_arsenals_on_captain_id_and_weapon_id"
-    t.index ["skyfarer_id", "weapon_id"], name: "index_arsenals_on_skyfarer_id_and_weapon_id"
-  end
-
-  create_table "captains", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "skyfarers", force: :cascade do |t|
-    t.integer "captain_id"
-    t.string "name"
-    t.string "race"
-    t.string "profession"
-    t.decimal "base_attack"
-    t.decimal "base_defense"
-    t.string "state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "weapons", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end
