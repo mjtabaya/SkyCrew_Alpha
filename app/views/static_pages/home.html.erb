@@ -1,18 +1,16 @@
 <% provide(:title, "Home") %>
 
-<!DOCTYPE html>
-<html>
+<div class="center jumbotron">
+  <h1>Welcome to Sky Crew Alpha</h1>
 
-  <body>
-      <a href="/users">Users</a>
-    <br>
-      <a href="/captains">Captains</a>
-    <br>
-      <a href="/skyfarers">Skyfarers</a>
-    <br>
-      <a href="/weapons">Weapons</a>
-    <br>
-      <a href="/arsenals">Arsenals</a>
-  </body>
+  <h2>
+    This is the home page for
+    <a href="https://github.com/mjtabaya/">MJTA's</a>
+    sample application.
+  </h2>
 
-</html>
+  <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
+</div>
+
+<%= link_to image_tag("rails.png", alt: "Rails logo"),
+            'http://rubyonrails.org/' %>
