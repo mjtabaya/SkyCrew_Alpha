@@ -1,0 +1,52 @@
+<%= form_with(model: skyfarer, local: true) do |form| %>
+  <% if skyfarer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(skyfarer.errors.count, "error") %> prohibited this skyfarer from being saved:</h2>
+
+      <ul>
+      <% skyfarer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :captain_id %>
+    <%= form.number_field :captain_id, id: :skyfarer_captain_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :skyfarer_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :race %>
+    <%= form.text_field :race, id: :skyfarer_race %>
+  </div>
+
+  <div class="field">
+    <%= form.label :class %>
+    <%= form.text_field :class, id: :skyfarer_class %>
+  </div>
+
+  <div class="field">
+    <%= form.label :base_attack %>
+    <%= form.text_field :base_attack, id: :skyfarer_base_attack %>
+  </div>
+
+  <div class="field">
+    <%= form.label :base_defense %>
+    <%= form.text_field :base_defense, id: :skyfarer_base_defense %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state, id: :skyfarer_state %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

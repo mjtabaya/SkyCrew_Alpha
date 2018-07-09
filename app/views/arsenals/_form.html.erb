@@ -1,0 +1,37 @@
+<%= form_with(model: arsenal, local: true) do |form| %>
+  <% if arsenal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(arsenal.errors.count, "error") %> prohibited this arsenal from being saved:</h2>
+
+      <ul>
+      <% arsenal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :captain_id %>
+    <%= form.number_field :captain_id, id: :arsenal_captain_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :skyfarer_id %>
+    <%= form.number_field :skyfarer_id, id: :arsenal_skyfarer_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weapon_id %>
+    <%= form.number_field :weapon_id, id: :arsenal_weapon_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :equipped %>
+    <%= form.check_box :equipped, id: :arsenal_equipped %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Captain:</strong>
+  <%= @skyfarer.captain_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @skyfarer.name %>
+</p>
+
+<p>
+  <strong>Race:</strong>
+  <%= @skyfarer.race %>
+</p>
+
+<p>
+  <strong>Class:</strong>
+  <%= @skyfarer.class %>
+</p>
+
+<p>
+  <strong>Base attack:</strong>
+  <%= @skyfarer.base_attack %>
+</p>
+
+<p>
+  <strong>Base defense:</strong>
+  <%= @skyfarer.base_defense %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @skyfarer.state %>
+</p>
+
+<%= link_to 'Edit', edit_skyfarer_path(@skyfarer) %> |
+<%= link_to 'Back', skyfarers_path %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Skyfarers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Captain</th>
+      <th>Name</th>
+      <th>Race</th>
+      <th>Class</th>
+      <th>Base attack</th>
+      <th>Base defense</th>
+      <th>State</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skyfarers.each do |skyfarer| %>
+      <tr>
+        <td><%= skyfarer.captain_id %></td>
+        <td><%= skyfarer.name %></td>
+        <td><%= skyfarer.race %></td>
+        <td><%= skyfarer.class %></td>
+        <td><%= skyfarer.base_attack %></td>
+        <td><%= skyfarer.base_defense %></td>
+        <td><%= skyfarer.state %></td>
+        <td><%= link_to 'Show', skyfarer %></td>
+        <td><%= link_to 'Edit', edit_skyfarer_path(skyfarer) %></td>
+        <td><%= link_to 'Destroy', skyfarer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Skyfarer', new_skyfarer_path %>

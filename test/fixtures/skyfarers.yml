@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  captain_id: 1
+  name: MyString
+  race: MyString
+  class: MyString
+  base_attack: 9.99
+  base_defense: 9.99
+  state: MyString
+
+two:
+  captain_id: 1
+  name: MyString
+  race: MyString
+  class: MyString
+  base_attack: 9.99
+  base_defense: 9.99
+  state: MyString

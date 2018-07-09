@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Captains</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @captains.each do |captain| %>
+      <tr>
+        <td><%= captain.user_id %></td>
+        <td><%= captain.name %></td>
+        <td><%= link_to 'Show', captain %></td>
+        <td><%= link_to 'Edit', edit_captain_path(captain) %></td>
+        <td><%= link_to 'Destroy', captain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Captain', new_captain_path %>

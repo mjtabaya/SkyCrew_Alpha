@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  captain_id: 1
+  skyfarer_id: 1
+  weapon_id: 1
+  equipped: false
+
+two:
+  captain_id: 1
+  skyfarer_id: 1
+  weapon_id: 1
+  equipped: false

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Arsenals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Captain</th>
+      <th>Skyfarer</th>
+      <th>Weapon</th>
+      <th>Equipped</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @arsenals.each do |arsenal| %>
+      <tr>
+        <td><%= arsenal.captain_id %></td>
+        <td><%= arsenal.skyfarer_id %></td>
+        <td><%= arsenal.weapon_id %></td>
+        <td><%= arsenal.equipped %></td>
+        <td><%= link_to 'Show', arsenal %></td>
+        <td><%= link_to 'Edit', edit_arsenal_path(arsenal) %></td>
+        <td><%= link_to 'Destroy', arsenal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Arsenal', new_arsenal_path %>

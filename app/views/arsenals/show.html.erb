@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Captain:</strong>
+  <%= @arsenal.captain_id %>
+</p>
+
+<p>
+  <strong>Skyfarer:</strong>
+  <%= @arsenal.skyfarer_id %>
+</p>
+
+<p>
+  <strong>Weapon:</strong>
+  <%= @arsenal.weapon_id %>
+</p>
+
+<p>
+  <strong>Equipped:</strong>
+  <%= @arsenal.equipped %>
+</p>
+
+<%= link_to 'Edit', edit_arsenal_path(@arsenal) %> |
+<%= link_to 'Back', arsenals_path %>
