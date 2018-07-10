@@ -8,7 +8,6 @@ class Captain < ApplicationRecord
 
   validates :name,
     length: { within: 5..20 },
-    format: { with: /\A\w*\z/ }
-
+    format: { with: /\A\w*\z$/i }
 
 end
