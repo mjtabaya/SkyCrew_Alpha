@@ -7,13 +7,13 @@ class Weapon < ApplicationRecord
   validates :name,
   length: { maximum: 23 },
   uniqueness: true,
-  format: { with: /^\w+\s*\w+\z/i }
+  format: { with: /\A\w+\s*\w+\z/i }
 
   validates :description,
   length: { maximum: 120 }
 
   validates :type,
   length: { maximum: 16 },
-  format: { with: /^\w+\s*\w+\z/i }
+  format: { with: /\A\w+\s*\w+\z/i }
 
 end

@@ -6,4 +6,6 @@ class Arsenal < ApplicationRecord
 
   validates_associated :captain, :weapon
 
+  
+
 end
