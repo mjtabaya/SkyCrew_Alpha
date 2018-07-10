@@ -4,6 +4,11 @@ class Captain < ApplicationRecord
   has_many :skyfarers
   has_many :arsenals
 
-  validates :name, length: { maximum: 23 }, presence: true
+  validates :user_id, :name, presence: true
+
+  validates :name,
+    length: { within: 5..20 },
+    format: { with: /\A\w*\z/ }
+
 
 end

@@ -5,4 +5,6 @@ class Arsenal < ApplicationRecord
   belongs_to :weapon
   belongs_to :skyfarer
 
+  validates_associated :pages, :library
+
 end

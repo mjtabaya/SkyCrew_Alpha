@@ -2,7 +2,15 @@ class User < ApplicationRecord
 
   has_one :captain
 
-  validates :password, length: { maximum: 23 }, presence: true
+  validates :name, :password, presence: true
+
+  validates :name,
+    length: { within: 5..20 },
+    uniqueness: true,
+    format: { with: /\A\w*\z/ }
+
+  validates :password,
+    length: { within: 5..20 },
 
 
 end
