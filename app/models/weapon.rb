@@ -2,7 +2,7 @@ class Weapon < ApplicationRecord
 
   has_many :arsenals
 
-  validates :name, :description, :type, presence: true
+  validates :name, :description, :weapon_type, presence: true
 
   validates :name,
   length: { maximum: 23 },
@@ -12,7 +12,7 @@ class Weapon < ApplicationRecord
   validates :description,
   length: { maximum: 120 }
 
-  validates :type,
+  validates :weapon_type,
   length: { maximum: 16 },
   format: { with: /\A\w+\s*\w+\z/i }
 

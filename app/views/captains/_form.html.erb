@@ -1,5 +1,5 @@
 <%= form_with(model: captain, local: true) do |form| %>
-  <%= render 'shared/captain_error_messages' %>
+  <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
     <%= form.label :name %>

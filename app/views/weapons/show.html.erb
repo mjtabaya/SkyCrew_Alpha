@@ -1,19 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<% provide(:title, @weapon.name) %>
+
+<h1>
+  <%= image_tag("weapons/#{@weapon.weapon_type}.png".downcase) %>
   <%= @weapon.name %>
-</p>
+</h1>
 
-<p>
-  <strong>Description:</strong>
+<h2>
   <%= @weapon.description %>
-</p>
+</h2>
 
-<p>
-  <strong>Type:</strong>
-  <%= @weapon.type %>
-</p>
-
-<%= link_to 'Edit', edit_weapon_path(@weapon) %> |
-<%= link_to 'Back', weapons_path %>
+<div class="text-right">
+  <%= link_to 'Edit', edit_weapon_path(@weapon) %> |
+  <%= link_to 'Back', weapons_path %>
+</div>

@@ -10,6 +10,7 @@ class WeaponsController < ApplicationController
   # GET /weapons/1
   # GET /weapons/1.json
   def show
+    @weapon = Weapon.find(params[:id])
   end
 
   # GET /weapons/new
@@ -69,6 +70,6 @@ class WeaponsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def weapon_params
-      params.require(:weapon).permit(:name, :description, :type)
+      params.require(:weapon).permit(:name, :description, :weapon_type)
     end
 end

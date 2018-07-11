@@ -8,6 +8,7 @@
 
 $gray-medium-light: #eaeaea;
 $dark: #000;
+$light: #fff;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -32,7 +33,7 @@ body {
 }
 
 .container {
-  background: rgba($dark, 0.5);
+  background: rgba($dark, 0.7);
 }
 
 section {
@@ -98,7 +99,7 @@ p {
 
 /* input fields */
 
-input {
+input, textarea {
   color: black;
 }
 
@@ -205,5 +206,18 @@ input {
   @extend .has-error;
   .form-control {
     color: red;
+  }
+}
+
+
+/* bootstrap overrides */
+.table-hover tbody tr:hover {
+    background-color: rgba($dark, 0.7);
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  color: #87CEEB;
+  a {
+    color: #87CEEB;
   }
 }
