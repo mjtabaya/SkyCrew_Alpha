@@ -1,5 +1,5 @@
 class CaptainsController < ApplicationController
-  before_action :set_captain, only: [:show, :edit, :update, :destroy]
+  #before_action :set_captain, only: [:show, :edit, :update, :destroy]
 
   # GET /captains
   # GET /captains.json
@@ -10,6 +10,7 @@ class CaptainsController < ApplicationController
   # GET /captains/1
   # GET /captains/1.json
   def show
+    @captain = Captain.find(params[:id])
   end
 
   # GET /captains/new
@@ -27,6 +28,7 @@ class CaptainsController < ApplicationController
     @captain = Captain.new(captain_params)
 
     respond_to do |format|
+      @captain.user_id = current_user.id if current_user
       if @captain.save
         format.html { redirect_to @captain, notice: 'Captain was successfully created.' }
         format.json { render :show, status: :created, location: @captain }

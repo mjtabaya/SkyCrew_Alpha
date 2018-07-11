@@ -1,14 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @captain.user_id %>
-</p>
+<% provide(:title, @captain.name) %>
 
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @captain.name %>
-</p>
+</h1>
 
 <%= link_to 'Edit', edit_captain_path(@captain) %> |
 <%= link_to 'Back', captains_path %>
