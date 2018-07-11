@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        log_in @user
         format.html { redirect_to @user }
           flash[:success] = "Welcome to Sky Crew!"
         format.json { render :show, status: :created, location: @user }

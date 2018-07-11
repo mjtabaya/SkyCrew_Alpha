@@ -1,12 +1,20 @@
-<h1>Log In</h1>
-<%= form_tag sessions_path do %>
-  <div class="field">
-    <%= label_tag :username %><br />
-    <%= text_field_tag :username, params[:username] %>
+<% provide(:title, "Log in") %>
+<h1>Log in</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :username %>
+      <%= f.text_field :username, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
-  <div class="field">
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions"><%= submit_tag "Log In" %></div>
-<% end %>
+
+</div>

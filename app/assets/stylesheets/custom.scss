@@ -7,6 +7,7 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$dark: #000;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -17,7 +18,14 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
+  background: {
+    image: asset-data-url("background_gbf.jpg")
+  }
   padding-top: 60px;
+}
+
+.container {
+  background: rgba($dark, 0.5);
 }
 
 section {
@@ -73,7 +81,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $gray-light;
+  color: #ffffff;
 }
 
 p {
@@ -87,9 +95,9 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  color: $gray-light;
+  color: #ffffff;
   a {
-    color: #555;
+    color: #ffffff;
     &:hover {
       color: #222;
     }
@@ -152,6 +160,10 @@ aside {
 
 .gravatar_edit {
   margin-top: 15px;
+}
+
+.jumbotron {
+  background: transparent;
 }
 
 /* forms */
