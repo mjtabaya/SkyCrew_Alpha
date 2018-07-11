@@ -17,10 +17,17 @@ $dark: #000;
 
 /* universal */
 
+html, body {
+    min-height: 100%;
+}
+
 body {
   background: {
     image: asset-data-url("background_gbf.jpg")
-  }
+  };
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
   padding-top: 60px;
 }
 
