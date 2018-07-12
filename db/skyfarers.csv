@@ -1,0 +1,6 @@
+id,captain_id,name,race,profession,base_attack,base_defense,state,created_at,updated_at
+1,1,Gran,Unknown,Fighter,5,5,Healthy,2018-07-12 18:37:39.895173,2018-07-12 18:37:39.895173
+2,1,Djeeta,Human,Fighter,5,5,Healthy,2018-07-12 18:38:00.573027,2018-07-12 18:38:00.573027
+3,1,Korwa,Erune,Enhancer,3,3,Healthy,2018-07-12 18:38:10.425753,2018-07-12 18:38:10.425753
+4,1,Razia,Draph,Knight,3,7,Healthy,2018-07-12 18:38:31.561299,2018-07-12 18:38:31.561299
+5,1,Mahira,Harvin,Ranger,5,3,Healthy,2018-07-12 18:38:45.018137,2018-07-12 18:38:45.018137

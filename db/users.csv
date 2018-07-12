@@ -1,0 +1,2 @@
+id,username,email,password_digest,created_at,updated_at
+1,skyapple,skyapple@skyapple.com,$2a$10$2T6iYUhMm7aRV/WCbZHlQu4pes911IvmIG/hKiGfGXiW.aVo2/cKS,2018-07-12 18:37:07.507680,2018-07-12 18:37:07.507680
