@@ -13,6 +13,7 @@ class CaptainsController < ApplicationController
     @captain = Captain.find(params[:id])
     @captain.user_id = current_user.id if current_user
     puts @captain.user_id
+    @skyfarers = @captain.skyfarers
   end
 
   # GET /captains/new

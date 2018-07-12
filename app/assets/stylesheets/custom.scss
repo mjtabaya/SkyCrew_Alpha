@@ -57,6 +57,25 @@ textarea {
   padding-bottom: 30px;
 }
 
+.headed-content {
+  border-top: double #87CEEB;
+  padding-bottom: 30px;
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+.row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* table divider */
+.divider {border-right: 3px solid rgba($dark, 0.4); padding-right: 5px;}
 /* header */
 
 #logo {
@@ -125,6 +144,11 @@ footer {
       margin-left: 15px;
     }
   }
+}
+
+/* captain ui */
+.crew_info {
+  margin-top: 45px;
 }
 
 /* miscellaneous */

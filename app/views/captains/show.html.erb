@@ -2,9 +2,26 @@
 
 <% provide(:title, @captain.name) %>
 
-<h1>
-  <%= @captain.name %>
+<h1 class="text-left">
+  <%= @captain.name %>'s Crew
 </h1>
+
+<div class="row headed-content">
+  <div class="col-md-3 crew_info divider">
+    Skyfarers Recruited: <%= @captain.skyfarers.size %>
+    <br>
+    Weapons Owned: <%= @captain.arsenals.size %>
+  </div>
+  <hr />
+  <div class="col-md-9 inventory center crew_info">
+    <% if current_captain.present? %>
+      <%= render 'captains/captain_skyfarers', skyfarers: @captain.skyfarers %>
+    <% else %>
+        <%= link_to 'New Captain', new_captain_path, class: "btn btn-lg btn-primary" %>
+    <% end %>
+    <%= link_to 'Recruit Skyfarer', new_skyfarer_path, class: "btn btn-lg btn-primary" %>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_captain_path(@captain) %> |
 <%= link_to 'Back', captains_path %>

@@ -1,0 +1,25 @@
+<table class="table table-dark table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Race</th>
+      <th>Profession</th>
+      <th>State</th>
+      <th colspan="3" class="text-center">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skyfarers.each do |skyfarer| %>
+      <tr>
+        <td><%= skyfarer.name %></td>
+        <td><%= skyfarer.race %></td>
+        <td><%= skyfarer.profession %></td>
+        <td><%= skyfarer.state %></td>
+        <td><%= link_to 'Info', skyfarer %></td>
+        <td><%= link_to 'Update', edit_captain_path(skyfarer) %></td>
+        <td><%= link_to 'Dismiss', skyfarer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
