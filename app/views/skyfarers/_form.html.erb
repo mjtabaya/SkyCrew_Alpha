@@ -1,20 +1,5 @@
 <%= form_with(model: skyfarer, local: true) do |form| %>
-  <% if skyfarer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(skyfarer.errors.count, "error") %> prohibited this skyfarer from being saved:</h2>
-
-      <ul>
-      <% skyfarer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :captain_id %>
-    <%= form.number_field :captain_id, id: :skyfarer_captain_id %>
-  </div>
+  <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
     <%= form.label :name %>
@@ -22,31 +7,31 @@
   </div>
 
   <div class="field">
-    <%= form.label :race %>
-    <%= form.text_field :race, id: :skyfarer_race %>
+    <%= form.select(:race,
+      options_for_select([['Human', 'Human'],
+        ['Harvin', 'Harvin'],
+        ['Erune', 'Erune'],
+        ['Draph', 'Draph'],
+        ['Unknown', 'Unknown']],
+        selected: :race),  :required => true) %>
   </div>
 
   <div class="field">
-    <%= form.label :profession %>
-    <%= form.text_field :profession, id: :skyfarer_profession %>
+    <%= form.select(:profession,
+      options_for_select([['Fighter', 'Fighter'],
+        ['Thief', 'Thief'],
+        ['Ranger', 'Ranger'],
+        ['Knight', 'Knight'],
+        ['Warlock', 'Warlock'],
+        ['Enhancer', 'Enhancer'],
+        ['Priest', 'Priest'],
+        ['Harpist', 'Harpist'],
+        ['Grappler', 'Grappler'],
+        ['Dragoon', 'Dragoon'],
+        ['Wizard', 'Wizard']],
+        selected: :profession),  :required => true) %>
   </div>
 
-  <div class="field">
-    <%= form.label :base_attack %>
-    <%= form.text_field :base_attack, id: :skyfarer_base_attack %>
-  </div>
+  <%= form.submit "Recruit skyfarer", class: "btn btn-success", :required => true %>
 
-  <div class="field">
-    <%= form.label :base_defense %>
-    <%= form.text_field :base_defense, id: :skyfarer_base_defense %>
-  </div>
-
-  <div class="field">
-    <%= form.label :state %>
-    <%= form.text_field :state, id: :skyfarer_state %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

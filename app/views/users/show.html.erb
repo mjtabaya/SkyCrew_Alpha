@@ -3,23 +3,27 @@
 <% provide(:title, @user.username) %>
 
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
+  <section class="user_info">
+  <div class="col-md-4">
         <%= gravatar_for @user %>
         <%= @user.username %>
         <br>
         <%= @user.email %>
-      </h1>
-    </section>
-  </aside>
+  </div>
+
+  <div class="col-md-8 inventory center">
+    <% if current_captain.present? %>
+      <%= render 'captains/user_captain', current_captain: current_captain %>
+    <% else %>
+        <%= link_to 'New Captain', new_captain_path, class: "btn btn-lg btn-primary" %>
+    <% end %>
+  </div>
+
+  </section>
 </div>
 
-<!--<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>-->
+
 <div class="text-right">
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>
 </div>

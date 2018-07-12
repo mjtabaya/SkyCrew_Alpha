@@ -11,6 +11,8 @@ class CaptainsController < ApplicationController
   # GET /captains/1.json
   def show
     @captain = Captain.find(params[:id])
+    @captain.user_id = current_user.id if current_user
+    puts @captain.user_id
   end
 
   # GET /captains/new
@@ -30,6 +32,7 @@ class CaptainsController < ApplicationController
     respond_to do |format|
       @captain.user_id = current_user.id if current_user
       if @captain.save
+        log_captain @captain
         format.html { redirect_to @captain, notice: 'Captain was successfully created.' }
         format.json { render :show, status: :created, location: @captain }
       else

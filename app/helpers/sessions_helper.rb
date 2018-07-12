@@ -5,6 +5,10 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
+  def log_captain(captain)
+    session[:captain_id] = captain.id
+  end
+
   # Returns true if the given user is the current user.
   def current_user?(user)
     user == current_user
@@ -13,6 +17,15 @@ module SessionsHelper
   # Returns the current logged-in user (if any).
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
+  end
+
+  # Returns the user-owned captain (if any)
+  def current_captain
+    @current_captain ||= Captain.find_by(user_id: session[:user_id])
+  end
+
+  def captain_skyfarers
+    @captain_skyfarers ||= Skyfarer.where(captain_id: current_captain.id)
   end
 
   # Returns true if the user is logged in, false otherwise.

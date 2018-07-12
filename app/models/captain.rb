@@ -1,15 +1,17 @@
 class Captain < ApplicationRecord
 
   belongs_to :user
-  
+
   has_many :skyfarers
   has_many :arsenals
+
+  accepts_nested_attributes_for   :skyfarers
 
   validates :user, presence: true
 
   validates :name,
-    length: { within: 5..20 },
-    format: { with: /\A\w*\z/i },
+    length: { within: 2..20 },
+    format: { with: /\A\w+\s*\w+\z/i },
     presence: true
 
 end
