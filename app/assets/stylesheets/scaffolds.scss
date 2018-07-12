@@ -1,5 +1,4 @@
 body {
-  background-color: #000;
   color: #ffffff;
   font-size: 15px;
   line-height: 18px;
@@ -17,14 +16,15 @@ pre {
 }
 
 a {
-  color: #fff;
+  color: white;
+  text-shadow: 0 0 5px #87CEEB;
 
   &:visited {
-    color: orange;
   }
 
   &:hover {
-    text-shadow: 0 0 5px #87CEEB
+    color: white;
+    text-shadow: 0 0 8px #87CEEB
   }
 }
 

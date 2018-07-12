@@ -1,18 +1,20 @@
 <% provide(:title, "Home") %>
 
 <div class="center jumbotron">
-  <h1>Welcome to Sky Crew Alpha</h1>
+  <h1>Cease not, lest the skies fall upon thee</h1>
+  <br>
 
   <p>
-    This is the home page for
-    <a href="https://github.com/mjtabaya/">MJTA's</a>
-    sample application.
+    Take this wish, to those with soaring pulses whom the heart calls:<br><br>
+    Raise your vow, high yet full of depth.<br><br>
+    Perceive the sight, it yours whose resolve be embraced.
+    <br><br>
+    Smile gently at the ending, thus press
+    <% if logged_in? %>
+      <%= link_to "Onward", logout_path, method: :delete %>
+    <% else %>
+      <%= link_to "Onward.", signup_path %>
+    <% end %>
   </p>
 
-  <p>
-    To begin, please click "Log In" at the upper-right of the page.
-  </p>
 </div>
-
-<%= link_to image_tag("rails.png", alt: "Rails logo"),
-            'http://rubyonrails.org/' %>

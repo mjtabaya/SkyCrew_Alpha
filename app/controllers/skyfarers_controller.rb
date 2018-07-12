@@ -20,6 +20,7 @@ class SkyfarersController < ApplicationController
 
   # GET /skyfarers/1/edit
   def edit
+    @skyfarer = Skyfarer.find(params[:id])
   end
 
   # POST /skyfarers
@@ -35,7 +36,7 @@ class SkyfarersController < ApplicationController
       stats_for @skyfarer
       @skyfarer.state = "Healthy"
       if @skyfarer.save
-        format.html { redirect_to @skyfarer, notice: 'Skyfarer was successfully created.' }
+        format.html { redirect_to current_captain, notice: 'Skyfarer was successfully created.' }
         format.json { render :show, status: :created, location: @skyfarer }
       else
         format.html { render :new }

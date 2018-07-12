@@ -16,11 +16,18 @@
   <hr />
   <div class="col-md-9 inventory center crew_info">
     <% if current_captain.present? %>
-      <%= render 'captains/captain_skyfarers', skyfarers: @captain.skyfarers %>
-    <% else %>
-        <%= link_to 'New Captain', new_captain_path, class: "btn btn-lg btn-primary" %>
+      <% if current_captain.id == params[:id] %>
+        <%= render 'captains/captain_skyfarers', skyfarers: @captain.skyfarers %>
+        <%= link_to 'Recruit Skyfarer', new_skyfarer_path, class: "btn btn-lg btn-primary" %>
+      <% end %>
+      <% else %>
+        <%= render 'captains/stalker_skyfarers', skyfarers: @captain.skyfarers %>
+      <% end>
     <% end %>
-    <%= link_to 'Recruit Skyfarer', new_skyfarer_path, class: "btn btn-lg btn-primary" %>
+
+    <% else %>
+        <%= link_to 'Captain contract required.', new_captain_path, class: "btn btn-lg btn-primary" %>
+    <% end %>
   </div>
 </div>
 <%= link_to 'Back', @user %>

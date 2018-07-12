@@ -106,7 +106,10 @@ class CaptainsController < ApplicationController
     				pointStrokeColor: "gray",
     				pointHighlightFill: "orange",
     				pointHighlightStroke: "black",
-    				data: [combat_skyfarers.size,tactical_skyfarers.size,support_skyfarers.size,defense_skyfarers.size]
+    				data: [helpers.combat_skyfarers.size,
+              helpers.tactical_skyfarers.size,
+              helpers.support_skyfarers.size,
+              helpers.defense_skyfarers.size]
     			}
 
     			#{

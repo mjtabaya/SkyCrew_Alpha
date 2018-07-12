@@ -29,19 +29,15 @@ html, body {
 }
 
 body {
-  background: {
-    image: asset-data-url("background_gbf.jpg")
-  };
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  padding-top: 60px;
-  height:100%;
+    background: asset-data-url("background_gbf.jpg");
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .container {
   background: rgba($dark, 0.7);
   box-shadow: 12px 0 15px -4px rgba(250, 250, 250, 0.8), -12px 0 8px -4px rgba(250, 250, 250, 0.8);
+  margin-top: 15vh;
 }
 
 section {
@@ -382,8 +378,24 @@ input {
 	transition: all .2s linear;
 }
 
+.navbar-fixed-bottom {
+  margin:inherit;
+}
+
+footer {
+  position:absolute;
+  bottom:0;
+  width: 97%;
+  text-align: center;
+  margin-top: 1%;
+}
+
 /* Transition Animation */
 #yield-container {
+  padding-bottom: 30px;
+  position:relative;
+  width: 100%;
+  min-height: 90vh;
     opacity: 1;
 
 webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
