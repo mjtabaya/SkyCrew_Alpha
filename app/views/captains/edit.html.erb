@@ -1,5 +1,7 @@
 <h1>Editing Captain</h1>
 
+<% provide(:title, @captain.name) %>
+
 <%= render 'form', captain: @captain %>
 
 <%= link_to 'Show', @captain %> |

@@ -14,6 +14,11 @@ module SessionsHelper
     user == current_user
   end
 
+  # Returns true if the given user is the current captain.
+  def current_captain?(captain)
+    captain == current_captain
+  end
+
   # Returns the current logged-in user (if any).
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
@@ -49,4 +54,21 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
   end
+
+  def combat_skyfarers
+    @combat_skyfarers = Skyfarer.where(profession: ["Fighter", "Grappler"], captain_id: current_captain)
+  end
+
+  def tactical_skyfarers
+    @tactical_skyfarers = Skyfarer.where(profession: ["Thief", "Ranger"], captain_id: current_captain)
+  end
+
+  def support_skyfarers
+    @support_skyfarers = Skyfarer.where(profession: ["Priest", "Enhancer", "Harpist"], captain_id: current_captain)
+  end
+
+  def defense_skyfarers
+    @defense_skyfarers = Skyfarer.where(profession: ["Knight", "Dragoon"], captain_id: current_captain)
+  end
+
 end

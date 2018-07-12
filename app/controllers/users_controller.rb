@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   #before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user,   only: [:edit, :update]
 
 
   # GET /users
@@ -75,6 +76,15 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    end
+
+    # Confirms the correct user.
+    def correct_user
+      @user = User.find(params[:id])
+      unless current_user?(@user)
+        flash[:danger] = "Unable to access that."
+        redirect_to current_user
+      end
     end
 
 

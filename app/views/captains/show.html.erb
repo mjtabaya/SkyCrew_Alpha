@@ -7,10 +7,11 @@
 </h1>
 
 <div class="row headed-content">
-  <div class="col-md-3 crew_info divider">
-    Skyfarers Recruited: <%= @captain.skyfarers.size %>
-    <br>
-    Weapons Owned: <%= @captain.arsenals.size %>
+  <div class="col-md-3 crew_info divider crew_summary">
+    <p>Skyfarers Recruited: <%= @captain.skyfarers.size %></p>
+    <p>Weapons Owned: <%= @captain.arsenals.size %></p>
+
+    <%= radar :radar_chart, @radarSize, @radarData%>
   </div>
   <hr />
   <div class="col-md-9 inventory center crew_info">

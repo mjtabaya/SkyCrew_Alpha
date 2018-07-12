@@ -1,0 +1,9 @@
+id,name,description,weapon_type,created_at,updated_at
+1,Gladius,"The veterans mutter a mantra as they polish their weapons. ""The warrior must be strong and true, like the broadsword.""",Sabre,2018-07-11 18:26:24.901763,2018-07-11 18:26:24.901763
+2,Broadword,"This is a thick, steadfast blade. Finesse will not survive a savage battlefield—brutal practicality will.",Sabre,2018-07-11 19:09:24.195392,2018-07-11 19:09:24.195392
+3,Maple Staff,The leaves of the maple tree change colors with the season. Mages who appreciate such natural harmony favor this staff.,Staff,2018-07-11 19:09:42.721279,2018-07-11 19:09:42.721279
+4,Spatha,Protecting your body with mere shells and scales does not ensure victory. Swords are to warriors as fangs are to lions,Sabre,2018-07-11 19:11:33.950782,2018-07-11 19:11:33.950782
+5,Shortbow,This bow is shorter and easier to carry than the standard longbow. It requires little strength to draw for easier use.,Bow,2018-07-11 19:12:09.080871,2018-07-11 19:12:09.080871
+6,Iron Rod,"Though it is primarily used to conduct magic, this iron rod doubles as a club in a pinch, which makes it quite popular.",Staff,2018-07-11 19:12:27.697133,2018-07-11 19:12:27.697133
+7,Taiaha,"A caster of spells dug up the tree roots, and with them struck the glowing shells, sending pure tones reverberating.",Staff,2018-07-11 19:12:54.345214,2018-07-11 19:12:54.345214
+8,Longbow,"Made from high-quality wood. It requires considerable strength to operate, but has enough power to easily pierce armor.",Bow,2018-07-11 19:13:20.879064,2018-07-11 19:13:20.879064

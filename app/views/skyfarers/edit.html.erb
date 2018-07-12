@@ -1,5 +1,7 @@
 <h1>Editing Skyfarer</h1>
 
+<% provide(:title, @skyfarer.name) %>
+
 <%= render 'form', skyfarer: @skyfarer %>
 
 <%= link_to 'Show', @skyfarer %> |

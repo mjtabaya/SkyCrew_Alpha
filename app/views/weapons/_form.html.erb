@@ -2,7 +2,7 @@
   <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, "Weapon Name" %>
     <%= form.text_field :name, id: :weapon_name %>
   </div>
 
@@ -13,7 +13,11 @@
 
   <div class="field">
     <%= form.label :type %>
-    <%= form.text_field :weapon_type, id: :weapon_type %>
+    <%= form.select("weapon_type",
+      options_for_select([['Sabre', 'Sabre'],
+        ['Bow', 'Bow'],
+        ['Staff', 'Staff']],
+        selected: :weapon_type), {:required => true}, :id => "weapon_type" )  %>
   </div>
 
   <%= form.submit "Create weapon entry", class: "btn btn-success", :required => true %>

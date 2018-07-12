@@ -1,5 +1,7 @@
 <h1>Editing Weapon</h1>
 
+<% provide(:title, @weapon.name) %>
+
 <%= render 'form', weapon: @weapon %>
 
 <%= link_to 'Show', @weapon %> |
