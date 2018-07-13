@@ -12,12 +12,18 @@
     <%= radar :radar_chart, @radarSize, @radarData%>
   </div>
   <hr />
-  <div class="col-md-9 inventory center crew_info">
+  <div class="col-md-9 center">
     <div class="row">
     <% if current_captain.present? %>
       <% if current_captain.id == @captain.id %>
+        <div class="col-md-12 text-center profile-content">
+          <h1 class="text-center">Skyfarers</h1>
+        </div>
         <%= render 'captains/captain_skyfarers', skyfarers: @captain.skyfarers %>
       <% else %>
+        <div class="col-md-12 text-center profile-content">
+          <h1 class="text-center">Skyfarers</h1>
+        </div>
         <%= render 'captains/stalker_skyfarers', skyfarers: @captain.skyfarers %>
       <% end %>
 
@@ -29,8 +35,15 @@
     <div class="row">
     <% if current_captain.present? %>
       <% if current_captain.id == @captain.id %>
+        <div class="col-md-12 text-center profile-content">
+          <h1 class="text-center">Weapons</h1>
+        </div>
         <%= render 'captains/captain_weapons', weapons: @captain.weapons %>
       <% else %>
+        <hr>
+        <div class="col-md-12 text-center profile-content">
+          <h1 class="text-center">Weapons</h1>
+        </div>
         <%= render 'captains/stalker_skyfarers', skyfarers: @captain.skyfarers %>
       <% end %>
 

@@ -26,6 +26,7 @@ html, body {
   font-family: 'Merriweather', serif;
   min-height: 100%;
   height: 101%;
+  color: white;
 }
 
 body {
@@ -201,12 +202,22 @@ nav ul{
 .dropdown-menu > li:hover, .dropdown-menu > li:focus {
 	background: rgba(135, 206, 235, 0.3);
   color: #fff;
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  -ms-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
 }
 
  .dropdown-menu > li > a:hover {
    background: transparent;
    text-shadow: 0 0 5px #87CEEB;
    color: #fff;
+   -webkit-transition: all .2s linear;
+   -moz-transition: all .2s linear;
+   -ms-transition: all .2s linear;
+   -o-transition: all .2s linear;
+   transition: all .2s linear;
  }
 
 /* typography */
@@ -333,11 +344,20 @@ aside {
 /* forms */
 
 input, textarea, select, .uneditable-input {
-  border: 1px solid #87CEEB;
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
-  color: black;
+  color: white;
+  text-shadow: 0 0 5px #87CEEB;
+  background: rgba(255,255,255,0.1);
+  background-image: none;
+  border: 1px solid #ccc;
+  /* border-radius: 4px; */
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px #87CEEB;
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
 input {
@@ -362,8 +382,57 @@ input {
 
 
 /* bootstrap overrides */
-.table-hover tbody tr:hover {
-    background-color: rgba($dark, 0.7);
+
+.profile-content{
+  border-top: double white;
+  margin-top: 20px;
+}
+
+.fixed-table-pagination div.pagination, .fixed-table-pagination .pagination-detail {
+    margin-right: 20px;
+}
+
+.fixed-table-toolbar .bs-bars, .fixed-table-toolbar .search, .fixed-table-toolbar .columns {
+    position: relative;
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 0;
+    line-height: 34px;
+}
+
+.fixed-table-pagination .pagination-info {
+    line-height: 34px;
+    margin-right: 5px;
+    margin-left: 15px;
+    text-shadow: 0 0 5px $gray-medium-light;
+}
+
+.form-control {
+    margin-bottom: 0;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: white;
+    text-shadow: 0 0 5px #87CEEB;
+    background: rgba(255,255,255,0.1);
+    background-image: none;
+    border: 1px solid #ccc;
+    /* border-radius: 4px; */
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px #87CEEB;
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.bootstrap-table {
+    width: 100%;
+    .table {
+      border-bottom: 2px solid rgba(0,100,255,0.5);
+    }
 
     -webkit-transition: all .2s linear;
   	-moz-transition: all .2s linear;
@@ -372,16 +441,122 @@ input {
   	transition: all .2s linear;
 }
 
+.fixed-table-container {
+  border: 0;
+}
+
+.table > thead > tr > th,
+.table > thead > tr > td {
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 2px solid rgba(0,100,255,0.5);
+}
+
+.table > tbody > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > th,
+.table > tfoot > tr > td {
+  /*border-left: 1px solid rgba(0, 0, 0, 0.7); */
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid rgba(0,100,255,0.5);
+  border-top: 0;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba($dark, 0.7);
+    -webkit-transition: all .2s linear;
+  	-moz-transition: all .2s linear;
+  	-ms-transition: all .2s linear;
+  	-o-transition: all .2s linear;
+  	transition: all .2s linear;
+}
+
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  color: #87CEEB;
+  text-shadow: 0 0 5px #87CEEB;
   a {
-    color: #87CEEB;
+  text-shadow: 0 0 5px #87CEEB;
   }
   -webkit-transition: all .2s linear;
 	-moz-transition: all .2s linear;
 	-ms-transition: all .2s linear;
 	-o-transition: all .2s linear;
 	transition: all .2s linear;
+}
+
+.btn-default {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #8c8c8c;
+}
+
+.btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus, .open > .btn-default.dropdown-toggle:hover, .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus {
+    color: #fff;
+    background-color: rgba(0,100,255,0.5);;
+    border-color: #8c8c8c;
+    -webkit-transition: all .2s linear;
+  	-moz-transition: all .2s linear;
+  	-ms-transition: all .2s linear;
+  	-o-transition: all .2s linear;
+  	transition: all .2s linear;
+}
+
+body .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    text-shadow: 0 0 5px #87CEEB;
+    text-decoration: none;
+    background: rgba(0,100,255,0.5);
+}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+    z-index: 3;
+    color: #fff;
+    background-color: rgba(0,100,255,0.5);
+    border-color: #337ab7;
+    cursor: default;
+    -webkit-transition: all .2s linear;
+  	-moz-transition: all .2s linear;
+  	-ms-transition: all .2s linear;
+  	-o-transition: all .2s linear;
+  	transition: all .2s linear;
+}
+
+body .dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn-default:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: #fff;
+    -webkit-transition: all .2s linear;
+  	-moz-transition: all .2s linear;
+  	-ms-transition: all .2s linear;
+  	-o-transition: all .2s linear;
+  	transition: all .2s linear;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    text-shadow: 0 0 5px #87CEEB;
+    -webkit-transition: all .2s linear;
+  	-moz-transition: all .2s linear;
+  	-ms-transition: all .2s linear;
+  	-o-transition: all .2s linear;
+  	transition: all .2s linear;
+}
+
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.428571429;
+    text-decoration: none;
+    color: #337ab7;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #ddd;
+    margin-left: -1px;
 }
 
 .navbar-fixed-bottom {

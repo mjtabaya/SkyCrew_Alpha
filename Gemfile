@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
+# Use bootstrap-table
+gem "bootstrap-table-rails"
+
 # Use chart
 gem 'chart'
 # Use jquery
@@ -27,6 +31,8 @@ gem 'html5_validators'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+
+gem 'coffee-script-source', '1.8.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
