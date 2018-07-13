@@ -8,7 +8,7 @@ class Skyfarer < ApplicationRecord
 
   validates :name,
   length: { maximum: 23 },
-  format: { with: /\A\w+\s*\w+\z/i }
+  format: { with: /\A\w+\s*\w*\s*\w+\z/i }
 
   validates :race,
   length: { maximum: 15 },

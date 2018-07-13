@@ -29,7 +29,7 @@
         ['Grappler', 'Grappler'],
         ['Dragoon', 'Dragoon'],
         ['Wizard', 'Wizard']],
-        selected: :profession),  :required => true) %>
+        selected: :profession), {:class => 'custom-select'}, :required => true) %>
   </div>
 
   <%= form.submit "Recruit skyfarer", class: "btn btn-success", :required => true %>

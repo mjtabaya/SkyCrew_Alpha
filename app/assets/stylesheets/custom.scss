@@ -571,6 +571,25 @@ footer {
   margin-top: 1%;
 }
 
+/*the container must be positioned relative:*/
+html body {
+  select {
+    color:#FFF;
+    text-shadow: 0 0 5px #87CEEB;
+  }
+  option:checked {
+    color: #000;
+    background: rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 5px #87CEEB;
+  }
+  option:not(:checked) {
+    color: #fff;
+    background: #131319;
+    text-shadow: 0 0 5px #87CEEB;
+  }
+}
+/* End Bootstrap Overrides */
+
 /* Yield Container and Transition Animation */
 #yield-container {
   padding-bottom: 30px;
