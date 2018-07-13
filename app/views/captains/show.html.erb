@@ -29,7 +29,7 @@
     <div class="row">
     <% if current_captain.present? %>
       <% if current_captain.id == @captain.id %>
-        <%= render 'captains/captain_arsenals', weapons: @captain.weapons %>
+        <%= render 'captains/captain_weapons', weapons: @captain.weapons %>
       <% else %>
         <%= render 'captains/stalker_skyfarers', skyfarers: @captain.skyfarers %>
       <% end %>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<% provide(:title, "Weapons") %>
+
+<h1>Weapons</h1>
+
+<table class="table table-dark table-hover">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weapons.each do |weapon| %>
+      <tr>
+        <td><%= image_tag("weapons/#{weapon.weapon_type}.png".downcase) %></td>
+        <td><%= weapon.name %></td>
+        <td><%= weapon.description %></td>
+        <td><%= link_to 'Details', weapon %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
