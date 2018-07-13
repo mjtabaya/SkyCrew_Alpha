@@ -73,6 +73,10 @@ textarea {
   flex-direction: column;
 }
 
+.table > thead > tr > th {
+  text-align: center;
+}
+
 /* table divider */
 .divider {
   border-right: 5px solid rgba(0,100,255,0.5);
@@ -194,15 +198,17 @@ nav ul{
   color: #fff;
 }
 
-.dropdown-menu > li:hover, .dropdown-menu > li:focus, .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-	background: #369;
+.dropdown-menu > li:hover, .dropdown-menu > li:focus {
+	background: rgba(135, 206, 235, 0.3);
   color: #fff;
 }
 
-.dropdown-menu a:focus{
-	background: #369;
-	outline: none;
-}
+ .dropdown-menu > li > a:hover {
+   background: transparent;
+   text-shadow: 0 0 5px #87CEEB;
+   color: #fff;
+ }
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -390,13 +396,14 @@ footer {
   margin-top: 1%;
 }
 
-/* Transition Animation */
+/* Yield Container and Transition Animation */
 #yield-container {
   padding-bottom: 30px;
   position:relative;
   width: 100%;
   min-height: 90vh;
     opacity: 1;
+  border-top: 5px rgba(250, 250, 250, 0.8) double;
 
 webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 1s; /* Firefox < 16 */

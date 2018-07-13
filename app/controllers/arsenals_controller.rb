@@ -24,16 +24,13 @@ class ArsenalsController < ApplicationController
   # POST /arsenals
   # POST /arsenals.json
   def create
-    @arsenal = Arsenal.new(arsenal_params)
-
-    respond_to do |format|
-      if @arsenal.save
-        format.html { redirect_to @arsenal, notice: 'Arsenal was successfully created.' }
-        format.json { render :show, status: :created, location: @arsenal }
-      else
-        format.html { render :new }
-        format.json { render json: @arsenal.errors, status: :unprocessable_entity }
-      end
+    @arsenal = Arsenal.new(captain_id: current_captain.id, user_id: current_user.id, weapon_id: params[:id])
+    if @arsenal.save
+      format.html { redirect_to @arsenal, notice: 'Arsenal was successfully created.' }
+      format.json { render :show, status: :created, location: @arsenal }
+    else
+      format.html { render :new }
+      format.json { render json: @arsenal.errors, status: :unprocessable_entity }
     end
   end
 

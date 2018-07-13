@@ -18,6 +18,30 @@ class WeaponsController < ApplicationController
     @weapon = Weapon.new
   end
 
+  def add_arsenal
+    @captain = Captain.find params[:captain_id]
+    @weapon = Weapon.find params[:weapon_id]
+    @arsenal = Arsenal.new(captain_id: @captain.id, weapon_id: @weapon.id)
+    @captain.arsenals << @arsenal
+    @weapon.arsenals << @arsenal
+    @arsenal.equipped = false
+
+    respond_to do |format|
+      if @arsenal.save
+        format.html { redirect_to @captain, notice: "#{@weapon.name} was successfully purchased." }
+        format.json { render :show, status: :created, location: @weapon }
+      else
+        format.html { render :new }
+        format.json { render json: @weapon.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def catalog
+    @weapons = Weapon.all
+    render('catalog')
+  end
+
   # GET /weapons/1/edit
   def edit
   end

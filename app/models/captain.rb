@@ -3,7 +3,9 @@ class Captain < ApplicationRecord
   belongs_to :user
 
   has_many :skyfarers
+  
   has_many :arsenals
+  has_many :weapons, through: :arsenals
 
   accepts_nested_attributes_for   :skyfarers
 

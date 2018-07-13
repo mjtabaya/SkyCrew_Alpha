@@ -1,25 +1,40 @@
-<%= form_with(model: arsenal, local: true) do |form| %>
-  <% if arsenal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(arsenal.errors.count, "error") %> prohibited this arsenal from being saved:</h2>
-
-      <ul>
-      <% arsenal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: skyfarer, local: true) do |form| %>
+  <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
-    <%= form.label :captain_id %>
-    <%= form.number_field :captain_id, id: :arsenal_captain_id %>
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :skyfarer_name %>
   </div>
 
   <div class="field">
-    <%= form.label :skyfarer_id %>
-    <%= form.number_field :skyfarer_id, id: :arsenal_skyfarer_id %>
+    <%= form.select(:race,
+      options_for_select([['Human', 'Human'],
+        ['Harvin', 'Harvin'],
+        ['Erune', 'Erune'],
+        ['Draph', 'Draph'],
+        ['Unknown', 'Unknown']],
+        selected: :race),  :required => true) %>
   </div>
+
+  <div class="field">
+    <%= form.select(:profession,
+      options_for_select([['Fighter', 'Fighter'],
+        ['Thief', 'Thief'],
+        ['Ranger', 'Ranger'],
+        ['Knight', 'Knight'],
+        ['Warlock', 'Warlock'],
+        ['Enhancer', 'Enhancer'],
+        ['Priest', 'Priest'],
+        ['Harpist', 'Harpist'],
+        ['Grappler', 'Grappler'],
+        ['Dragoon', 'Dragoon'],
+        ['Wizard', 'Wizard']],
+        selected: :profession),  :required => true) %>
+  </div>
+
+  <%= form.submit "Recruit skyfarer", class: "btn btn-success", :required => true %>
+
+<% end %>
 
   <div class="field">
     <%= form.label :weapon_id %>
@@ -34,4 +49,3 @@
   <div class="actions">
     <%= form.submit %>
   </div>
-<% end %>

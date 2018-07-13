@@ -12,10 +12,20 @@ class CaptainsController < ApplicationController
   # GET /captains/1.json
   def show
     skyfarer_chart
+    show_captain_skyfarers
+    show_captain_weapons
+  end
+
+  def show_captain_skyfarers
     @captain = Captain.find(params[:id])
     @captain.user_id = current_user.id if current_user
-    puts @captain.user_id
     @skyfarers = @captain.skyfarers
+  end
+
+  def show_captain_weapons
+    @captain = Captain.find(params[:id])
+    @captain.user_id = current_user.id if current_user
+    @weapons = @captain.weapons
   end
 
   # GET /captains/new

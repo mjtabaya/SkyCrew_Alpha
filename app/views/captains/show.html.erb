@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <% provide(:title, @captain.name) %>
 
 <h1 class="text-left">
@@ -15,10 +13,10 @@
   </div>
   <hr />
   <div class="col-md-9 inventory center crew_info">
+    <div class="row">
     <% if current_captain.present? %>
       <% if current_captain.id == @captain.id %>
         <%= render 'captains/captain_skyfarers', skyfarers: @captain.skyfarers %>
-        <%= link_to 'Recruit Skyfarer', new_skyfarer_path, class: "btn btn-lg btn-primary" %>
       <% else %>
         <%= render 'captains/stalker_skyfarers', skyfarers: @captain.skyfarers %>
       <% end %>
@@ -26,10 +24,25 @@
     <% else %>
         <%= link_to 'Captain contract required.', new_captain_path, class: "btn btn-lg btn-primary" %>
     <% end %>
+    </div>
+
+    <div class="row">
+    <% if current_captain.present? %>
+      <% if current_captain.id == @captain.id %>
+        <%= render 'captains/captain_arsenals', weapons: @captain.weapons %>
+      <% else %>
+        <%= render 'captains/stalker_skyfarers', skyfarers: @captain.skyfarers %>
+      <% end %>
+
+    <% else %>
+        <%= link_to 'Captain contract required.', new_captain_path, class: "btn btn-lg btn-primary" %>
+    <% end %>
+    </div>
+
   </div>
 
   <div class="col-md-12">
     <%= link_to 'Back', @user %>
   </div>
-  
+
 </div>
