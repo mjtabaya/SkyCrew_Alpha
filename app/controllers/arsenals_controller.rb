@@ -25,6 +25,7 @@ class ArsenalsController < ApplicationController
   # POST /arsenals.json
   def create
     @arsenal = Arsenal.new(captain_id: current_captain.id, user_id: current_user.id, weapon_id: params[:id])
+    @weapons = Weapon.where(weapon_id: params[:id])
     if @arsenal.save
       format.html { redirect_to @arsenal, notice: 'Arsenal was successfully created.' }
       format.json { render :show, status: :created, location: @arsenal }

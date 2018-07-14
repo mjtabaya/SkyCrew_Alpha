@@ -2,14 +2,14 @@
 
 <h1>Arsenals</h1>
 
-<table>
+<table class="table table-dark table-hover text-center" data-pagination="true" data-search="true" data-toggle="table">
   <thead>
     <tr>
-      <th>Captain</th>
-      <th>Skyfarer</th>
-      <th>Weapon</th>
-      <th>Equipped</th>
-      <th colspan="3"></th>
+      <th data-sortable="true" data-field="captain">Captain</th>
+      <th data-sortable="true" data-field="skyfarer">Equipped by</th>
+      <th data-sortable="true" data-field="weapon">Weapon</th>
+      <th data-sortable="true" data-field="equipped">Equipped</th>
+      <th>Options</th>
     </tr>
   </thead>
 
@@ -20,14 +20,11 @@
         <td><%= arsenal.skyfarer_id %></td>
         <td><%= arsenal.weapon_id %></td>
         <td><%= arsenal.equipped %></td>
-        <td><%= link_to 'Show', arsenal %></td>
-        <td><%= link_to 'Edit', edit_arsenal_path(arsenal) %></td>
-        <td><%= link_to 'Destroy', arsenal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', arsenal %> |
+             <%= link_to 'Edit', edit_arsenal_path(arsenal) %> |
+             <%= link_to 'Scrap', arsenal, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Arsenal', new_arsenal_path %>
