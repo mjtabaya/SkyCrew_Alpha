@@ -13,7 +13,7 @@
   </div>
 
   <div class="col-md-7 inventory col-md-offset-2">
-    <% if current_captain.present? %>
+    <% if current_captain.present? && user.authenticate(params[:session]) %>
       <%= render 'captains/user_captain', current_captain: current_captain%>
     <% else %>
         <%= link_to 'New Captain', new_captain_path, class: "btn btn-lg btn-primary" %>
