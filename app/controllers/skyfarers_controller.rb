@@ -1,5 +1,5 @@
 class SkyfarersController < ApplicationController
-  #before_action :set_skyfarer, only: [:show, :edit, :update, :destroy]
+  before_action :correct_captain,   only: [:show, :edit, :update, :destroy]
 
   # GET /skyfarers
   # GET /skyfarers.json
@@ -81,6 +81,15 @@ class SkyfarersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def skyfarer_params
       params.require(:skyfarer).permit(:captain_id, :name, :race, :profession, :base_attack, :base_defense, :state)
+    end
+
+    # Confirms the correct captain.
+    def correct_captain
+      @captain = Skyfarer.find(params[:id]).captain
+      unless current_captain?(@captain)
+        flash[:danger] = "Unable to access that."
+        redirect_back(fallback_location: root_path)
+      end
     end
 
     def stats_for(skyfarer)

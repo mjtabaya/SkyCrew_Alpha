@@ -24,7 +24,7 @@ class CaptainsController < ApplicationController
 
   def show_captain_weapons
     @captain = Captain.find(params[:id])
-    @captain.user_id = current_user.id if current_user
+    # @captain.user_id = current_user.id if current_user
     @weapons = @captain.weapons
   end
 
