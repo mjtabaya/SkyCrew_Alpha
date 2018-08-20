@@ -28,4 +28,4 @@ class ImportUsersCaptainsSkyfarersCsv < ActiveRecord::Migration[5.1]
 #    Skyfarer.delete_all
 #    Captain.delete_all
 #  end
-#end
+end
