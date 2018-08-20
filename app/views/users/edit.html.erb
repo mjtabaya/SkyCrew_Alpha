@@ -1,5 +1,7 @@
 <h1>Editing User</h1>
 
+<% provide(:title, @user.name) %>
+
 <%= render 'form', user: @user %>
 
 <%= link_to 'Show', @user %> |
