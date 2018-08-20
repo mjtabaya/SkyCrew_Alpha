@@ -13,7 +13,8 @@
       <th data-sortable="true" data-field="profession">Profession</th>
       <th data-sortable="true" data-field="base_attack">Base attack</th>
       <th data-sortable="true" data-field="base_defense">Base defense</th>
-      <th data-sortable="true" data-field="defense">State</th>
+      <th data-sortable="true" data-field="created_at">Date Recruited</th>
+      <th data-sortable="true" data-field="state">State</th>
       <th>Options</th>
     </tr>
   </thead>
@@ -27,6 +28,7 @@
         <td><%= skyfarer.profession %></td>
         <td><%= skyfarer.base_attack %></td>
         <td><%= skyfarer.base_defense %></td>
+        <td><%= skyfarer.created_at %></td>
         <td><%= skyfarer.state %></td>
         <td><%= link_to 'Show', skyfarer %> |
              <%= link_to 'Edit', edit_skyfarer_path(skyfarer) %> |

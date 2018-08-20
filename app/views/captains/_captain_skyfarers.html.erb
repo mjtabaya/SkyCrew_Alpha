@@ -4,6 +4,7 @@
             <th data-sortable="true" data-field="name">Name</th>
             <th data-sortable="true" data-field="race">Race</th>
             <th data-sortable="true" data-field="profession">Profession</th>
+            <th data-sortable="true" data-field="created_at">Date Recruited</th>
             <th data-sortable="true" data-field="state">State</th>
             <th>Actions</th>
         </tr>
@@ -14,6 +15,7 @@
           <td><%= link_to skyfarer.name, skyfarer%></td>
           <td><%= skyfarer.race %></td>
           <td><%= skyfarer.profession %></td>
+          <td><%= skyfarer.created_at %></td>
           <td><%= skyfarer.state %></td>
           <td>
             <%= link_to "Info", skyfarer%> |
