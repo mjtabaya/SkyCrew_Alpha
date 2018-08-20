@@ -28,9 +28,6 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 # HTML5 validators for forms
 gem 'html5_validators'
-# Basic image upload, include fog in prod
-gem 'carrierwave'
-gem 'mini_magick'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -64,7 +61,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'fog'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
