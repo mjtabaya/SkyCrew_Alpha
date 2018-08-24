@@ -33,7 +33,7 @@ class SkyfarersController < ApplicationController
       puts "--Zoop--"
       puts @skyfarer.captain_id
       puts "--Zeep--"
-      stats_for @skyfarer
+      @skyfarer.set_stats
       @skyfarer.state = "Healthy"
       if @skyfarer.save
         format.html { redirect_to current_captain, notice: 'Skyfarer was successfully created.' }
@@ -50,7 +50,7 @@ class SkyfarersController < ApplicationController
   def update
     respond_to do |format|
       @skyfarer.captain_id = current_captain.id if current_captain
-      stats_for @skyfarer
+      @skyfarer.set_stats
       @skyfarer.state = "Healthy"
       if @skyfarer.update(skyfarer_params)
         format.html { redirect_to @skyfarer, notice: 'Skyfarer was successfully updated.' }
@@ -89,44 +89,6 @@ class SkyfarersController < ApplicationController
       unless current_captain?(@captain)
         flash[:danger] = "Unable to access that."
         redirect_back(fallback_location: root_path)
-      end
-    end
-
-    def stats_for(skyfarer)
-      case skyfarer.profession
-      when "Fighter"
-        skyfarer.base_attack = 5
-        skyfarer.base_defense = 5
-      when "Thief"
-        skyfarer.base_attack = 3
-        skyfarer.base_defense = 3
-      when "Ranger"
-        skyfarer.base_attack = 5
-        skyfarer.base_defense = 3
-      when "Knight"
-        skyfarer.base_attack = 3
-        skyfarer.base_defense = 7
-      when "Warlock"
-        skyfarer.base_attack = 3
-        skyfarer.base_defense = 3
-      when "Enhancer"
-        skyfarer.base_attack = 3
-        skyfarer.base_defense = 3
-      when "Priest"
-        skyfarer.base_attack = 3
-        skyfarer.base_defense = 3
-      when "Harpist"
-        skyfarer.base_attack = 3
-        skyfarer.base_defense = 3
-      when "Grappler"
-        skyfarer.base_attack = 3
-        skyfarer.base_defense = 3
-      when "Dragoon"
-        skyfarer.base_attack = 3
-        skyfarer.base_defense = 3
-      when "Wizard"
-        skyfarer.base_attack = 3
-        skyfarer.base_defense = 3
       end
     end
 

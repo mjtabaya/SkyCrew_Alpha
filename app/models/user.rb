@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   before_save { self.email = email.downcase }
 
-  has_one :captain
+  has_one :captain, :dependent => :destroy
 
   validates :username, :email, presence: true
 

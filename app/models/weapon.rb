@@ -1,6 +1,6 @@
 class Weapon < ApplicationRecord
 
-  has_many :arsenals
+  has_many :arsenals, :dependent => :destroy
   has_many :captains, through: :arsenals
   belongs_to :skyfarer, { :optional => true }
 
