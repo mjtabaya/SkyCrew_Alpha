@@ -23,7 +23,7 @@ $ rails db:migrate
 If everything goes alright, you'll be ready to run the app in a local server:
 
 ```
-$ rails server
+$ rails s
 ```
 
 ## Live Server
