@@ -20,7 +20,7 @@
           <td>
             <%= link_to "Info", skyfarer%> |
             <%= link_to "Update", edit_skyfarer_path(skyfarer)%> |
-            <%= link_to 'Dismiss', skyfarer, method: :delete, data: { confirm: 'Dismiss ' + skyfarer.name + "? (They'll be gone forever)" } %>
+            <%= link_to 'Dismiss', skyfarer, method: :delete, data: { confirm: 'Dismiss ' + skyfarer.name + "? There's no turning back afterwards." } %>
           </td>
         </tr>
       <% end %>

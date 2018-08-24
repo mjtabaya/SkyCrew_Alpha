@@ -23,7 +23,7 @@
         <td><%= weapon.description %></td>
         <td><%= link_to 'Details', weapon %></td>
         <td>
-          <%= link_to 'Purchase', {:controller => "weapons", :action => "add_arsenal", :captain_id => current_captain.id, :weapon_id=> weapon.id} , :method=>:post  %>
+          <%= link_to 'Purchase', {:controller => "weapons", :action => "add_arsenal", :captain_id => current_captain.id, :weapon_id=> weapon.id}, :method=>:post, data: {confirm: 'Would you like to purchase ' + weapon.name + "?"}%>
         </td>
       </tr>
     <% end %>

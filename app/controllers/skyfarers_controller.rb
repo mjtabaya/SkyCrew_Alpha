@@ -30,11 +30,9 @@ class SkyfarersController < ApplicationController
 
     respond_to do |format|
       @skyfarer.captain_id = current_captain.id if current_captain
-      puts "--Zoop--"
-      puts @skyfarer.captain_id
-      puts "--Zeep--"
       @skyfarer.set_stats
       @skyfarer.state = "Healthy"
+
       if @skyfarer.save
         format.html { redirect_to current_captain, notice: 'Skyfarer was successfully created.' }
         format.json { render :show, status: :created, location: @skyfarer }
@@ -51,7 +49,6 @@ class SkyfarersController < ApplicationController
     respond_to do |format|
       @skyfarer.captain_id = current_captain.id if current_captain
       @skyfarer.set_stats
-      @skyfarer.state = "Healthy"
       if @skyfarer.update(skyfarer_params)
         format.html { redirect_to @skyfarer, notice: 'Skyfarer was successfully updated.' }
         format.json { render :show, status: :ok, location: @skyfarer }
@@ -90,6 +87,17 @@ class SkyfarersController < ApplicationController
         flash[:danger] = "Unable to access that."
         redirect_back(fallback_location: root_path)
       end
+    end
+
+    # Set limit of recruitment, block multiple thread bypass
+    def recruit_skyfarer(skyfarer)
+      #num_updated = Captain.where(id: current_captain.id)
+      #  .where('num_remaining <= max_recruitments')
+      #  .update_all('num_remaining = num_remaining + 1')
+#
+#      if num_updated == 0
+#        raise ActiveRecord::Rollback
+#      end
     end
 
 end

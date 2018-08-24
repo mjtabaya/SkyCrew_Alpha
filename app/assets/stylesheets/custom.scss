@@ -78,6 +78,8 @@ textarea {
   text-align: center;
 }
 
+
+
 /* table divider */
 .divider {
   border-right: 5px solid rgba(0,100,255,0.5);
@@ -250,6 +252,8 @@ p {
 /* footer */
 
 footer {
+  background: rgba($dark, 0.9);
+  width: 100%;
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
@@ -272,6 +276,8 @@ footer {
     }
   }
 }
+
+
 
 /* captain ui */
 .crew_info {
@@ -561,14 +567,6 @@ body .dropdown-menu {
 
 .navbar-fixed-bottom {
   margin:inherit;
-}
-
-footer {
-  position:absolute;
-  bottom:0;
-  width: 97%;
-  text-align: center;
-  margin-top: 1%;
 }
 
 /*the container must be positioned relative:*/
