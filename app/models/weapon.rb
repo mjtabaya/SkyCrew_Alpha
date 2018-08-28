@@ -18,4 +18,13 @@ class Weapon < ApplicationRecord
   length: { maximum: 16 },
   format: { with: /\A\w+\s*\w+\z/i }
 
+  # Multipliers:
+  # Sabre 1.5
+  # Dagger 0.8
+  # Bow 1.1
+  # Gun 1.2
+  # Staff 0.6
+  # Harp 0.5
+
+
 end

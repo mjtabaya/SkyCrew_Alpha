@@ -60,4 +60,8 @@ class Skyfarer < ApplicationRecord
     end
   end
 
+  def weapon_multiplier(skyfarer = self)
+
+  end
+
 end
