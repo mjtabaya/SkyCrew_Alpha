@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :logged_in_user, only: [:index, :edit, :update]
+  before_action :logged_in_user, only: %i[index edit update]
 
   protect_from_forgery with: :exception
   include SessionsHelper

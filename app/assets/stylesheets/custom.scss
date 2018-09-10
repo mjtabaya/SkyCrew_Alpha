@@ -373,9 +373,10 @@ input {
 #error_explanation {
   color: red;
   ul {
-    color: red;
+    color: orange;
     margin: 0 0 30px 0;
     width: 100%;
+    text-shadow: 0 0 5px orange;
   }
 }
 

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action :correct_user,   only: [:show, :edit, :update, :destroy]
-
+  before_action :correct_user, only: %i[show edit update destroy]
 
   # GET /users
   # GET /users.json
@@ -27,31 +26,23 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        log_in @user
-        format.html { redirect_to @user }
-          flash[:success] = "Welcome to Sky Crew!"
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      log_in @user
+      redirect_to @user
+      flash[:success] = "Welcome to Sky Crew!"
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.update(user_params)
+      message = "User was successfully updated."
+      redirect_to @user, notice: message
+    else
+      render :edit
     end
   end
 
@@ -59,10 +50,8 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    message = "User was successfully destroyed."
+    redirect_to users_url, notice: message
   end
 
   private
@@ -79,7 +68,7 @@ class UsersController < ApplicationController
 
     # Confirms the correct user.
     def correct_user
-      @user = User.find(params[:id])
+      set_user
       unless current_user?(@user) || @current_user.username == "unoone"
         flash[:danger] = "Unable to access that."
         redirect_to current_user

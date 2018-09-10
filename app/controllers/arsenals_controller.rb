@@ -1,5 +1,5 @@
 class ArsenalsController < ApplicationController
-  before_action :set_arsenal, only: [:show, :edit, :update, :destroy]
+  before_action :set_arsenal, only: %i[show edit update destroy]
 
   # GET /arsenals
   # GET /arsenals.json
@@ -27,25 +27,21 @@ class ArsenalsController < ApplicationController
     @arsenal = Arsenal.new(captain_id: current_captain.id, user_id: current_user.id, weapon_id: params[:id])
     @weapons = Weapon.where(weapon_id: params[:id])
     if @arsenal.save
-      format.html { redirect_to @arsenal, notice: 'Arsenal was successfully created.' }
-      format.json { render :show, status: :created, location: @arsenal }
+      message = "Arsenal was successfully created."
+      redirect_to @arsenal, notice: message
     else
-      format.html { render :new }
-      format.json { render json: @arsenal.errors, status: :unprocessable_entity }
+      render :new
     end
   end
 
   # PATCH/PUT /arsenals/1
   # PATCH/PUT /arsenals/1.json
   def update
-    respond_to do |format|
-      if @arsenal.update(arsenal_params)
-        format.html { redirect_to @arsenal, notice: 'Arsenal was successfully updated.' }
-        format.json { render :show, status: :ok, location: @arsenal }
-      else
-        format.html { render :edit }
-        format.json { render json: @arsenal.errors, status: :unprocessable_entity }
-      end
+    if @arsenal.update(arsenal_params)
+      message = "Arsenal was successfully updated."
+      redirect_to @arsenal, notice: message
+    else
+      render :edit
     end
   end
 
@@ -53,20 +49,18 @@ class ArsenalsController < ApplicationController
   # DELETE /arsenals/1.json
   def destroy
     @arsenal.destroy
-    respond_to do |format|
-      format.html { redirect_to arsenals_url, notice: 'Arsenal was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to arsenals_url, notice: "Arsenal was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_arsenal
-      @arsenal = Arsenal.find(params[:id])
-    end
+  
+  # Use callbacks to share common setup or constraints between actions.
+  def set_arsenal
+    @arsenal = Arsenal.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def arsenal_params
-      params.require(:arsenal).permit(:captain_id, :skyfarer_id, :weapon_id, :equipped)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def arsenal_params
+    params.require(:arsenal).permit(:captain_id, :skyfarer_id, :weapon_id, :equipped)
+  end
 end

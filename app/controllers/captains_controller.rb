@@ -1,6 +1,6 @@
 class CaptainsController < ApplicationController
   #before_action :set_captain, only: [:show, :edit, :update, :destroy]
-  before_action :correct_captain,   only: [:edit, :update]
+  before_action :correct_captain, only: %i[edit update]
 
   # GET /captains
   # GET /captains.json
@@ -79,60 +79,61 @@ class CaptainsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_captain
-      @captain = Captain.find(params[:id])
+  
+  # Use callbacks to share common setup or constraints between actions.
+  def set_captain
+    @captain = Captain.find(params[:id])
+  end
+
+  # Confirms the correct captain.
+  def correct_captain
+    @captain = Captain.find(params[:id])
+    unless current_captain?(@captain)
+      flash[:danger] = "Unable to access that."
+      redirect_to current_captain
     end
+  end
 
-    # Confirms the correct captain.
-    def correct_captain
-      @captain = Captain.find(params[:id])
-      unless current_captain?(@captain)
-        flash[:danger] = "Unable to access that."
-        redirect_to current_captain
-      end
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def captain_params
+    params.require(:captain).permit(:user_id, :name)
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def captain_params
-      params.require(:captain).permit(:user_id, :name)
-    end
-
-    def skyfarer_chart
-      @radarSize = {
-        :height => 250,
-        :width => 400
-      }
+  def skyfarer_chart
+    @radarSize = {
+      :height => 250,
+      :width => 400
+    }
 
 
-      @radarData = {
-    		labels: ["Combat", "Tactical", "Support", "Defense"],
-    		datasets: [
-    			{
-    				label: "",
-    				fillColor: "rgba(135, 206, 235,0.2)",
-    				strokeColor: "black",
-    				pointColor: "#87CEEB",
-    				pointStrokeColor: "gray",
-    				pointHighlightFill: "orange",
-    				pointHighlightStroke: "black",
-    				data: [helpers.combat_skyfarers.size,
-              helpers.tactical_skyfarers.size,
-              helpers.support_skyfarers.size,
-              helpers.defense_skyfarers.size]
-    			}
+    @radarData = {
+  		labels: ["Combat", "Tactical", "Support", "Defense"],
+  		datasets: [
+  			{
+  				label: "",
+  				fillColor: "rgba(135, 206, 235,0.2)",
+  				strokeColor: "black",
+  				pointColor: "#87CEEB",
+  				pointStrokeColor: "gray",
+  				pointHighlightFill: "orange",
+  				pointHighlightStroke: "black",
+  				data: [helpers.combat_skyfarers.size,
+            helpers.tactical_skyfarers.size,
+            helpers.support_skyfarers.size,
+            helpers.defense_skyfarers.size]
+  			}
 
-    			#{
-    			#	label: "",
-    			#	fillColor: "rgba(151,187,205,0.2)",
-    			#	strokeColor: "rgba(151,187,205,1)",
-    			#	pointColor: "rgba(151,187,205,1)",
-    			#	pointStrokeColor: "#fff",
-    			#	pointHighlightFill: "#fff",
-    			#	pointHighlightStroke: "rgba(151,187,205,1)",
-    			#	data: [28,48,40,19,96,27,100]
-    			#}
-    		]
-    	}.to_json
-    end
+  			#{
+  			#	label: "",
+  			#	fillColor: "rgba(151,187,205,0.2)",
+  			#	strokeColor: "rgba(151,187,205,1)",
+  			#	pointColor: "rgba(151,187,205,1)",
+  			#	pointStrokeColor: "#fff",
+  			#	pointHighlightFill: "#fff",
+  			#	pointHighlightStroke: "rgba(151,187,205,1)",
+  			#	data: [28,48,40,19,96,27,100]
+  			#}
+  		]
+  	}.to_json
+  end
 end

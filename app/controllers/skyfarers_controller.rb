@@ -1,5 +1,5 @@
 class SkyfarersController < ApplicationController
-  before_action :correct_captain,   only: %i[show edit update destroy]
+  before_action :correct_captain, only: %i[show edit update destroy]
   before_action :set_skyfarer, only: %i[show edit update]
   before_action :set_captain, only: %i[update]
   # GET /skyfarers
@@ -53,46 +53,45 @@ class SkyfarersController < ApplicationController
   # DELETE /skyfarers/1.json
   def destroy
     @skyfarer.destroy
-    respond_to do |format|
-      format.html { redirect_to skyfarers_url, notice: 'Skyfarer was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    message = "Skyfarer was successfully destroyed."
+    redirect_to skyfarers_url, notice: message
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_skyfarer
-      @skyfarer = Skyfarer.find(params[:id])
-    end
+  
+  # Use callbacks to share common setup or constraints between actions.
+  def set_skyfarer
+    @skyfarer = Skyfarer.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def skyfarer_params
-      params.require(:skyfarer).permit(:captain_id, :name, :race, :profession, :base_attack, :base_defense, :state)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def skyfarer_params
+    params.require(:skyfarer).permit(:captain_id, :name, :race, :profession, :base_attack, :base_defense, :state)
+  end
 
-    # Confirms the correct captain.
-    def correct_captain
-      @captain = Skyfarer.find(params[:id]).captain
-      unless current_captain?(@captain)
-        flash[:danger] = "Unable to access that."
-        redirect_back(fallback_location: root_path)
-      end
+  # Confirms the correct captain.
+  def correct_captain
+    @captain = Skyfarer.find(params[:id]).captain
+    unless current_captain?(@captain)
+      flash[:danger] = "Unable to access that."
+      redirect_back(fallback_location: root_path)
     end
+  end
 
-    # Assigns captain to current skyfarer
-    def set_captain
-      @skyfarer.captain_id = current_captain.id if current_captain
-    end
+  # Assigns captain to current skyfarer
+  def set_captain
+    @skyfarer.captain_id = current_captain.id if current_captain
+  end
 
-    # Set limit of recruitment, block multiple thread bypass
-    def recruit_skyfarer(skyfarer)
-      #num_updated = Captain.where(id: current_captain.id)
-      #  .where('num_remaining <= max_recruitments')
-      #  .update_all('num_remaining = num_remaining + 1')
+  # Set limit of recruitment, block multiple thread bypass
+  def recruit_skyfarer(skyfarer)
+    #num_updated = Captain.where(id: current_captain.id)
+    #  .where('num_remaining <= max_recruitments')
+    #  .update_all('num_remaining = num_remaining + 1')
 #
 #      if num_updated == 0
 #        raise ActiveRecord::Rollback
 #      end
-    end
+  end
 
 end

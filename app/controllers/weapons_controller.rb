@@ -1,5 +1,5 @@
 class WeaponsController < ApplicationController
-  before_action :set_weapon, only: [:show, :edit, :update, :destroy]
+  before_action :set_weapon, only: %i[show edit update destroy]
 
   # GET /weapons
   # GET /weapons.json
@@ -25,15 +25,11 @@ class WeaponsController < ApplicationController
     @captain.arsenals << @arsenal
     @weapon.arsenals << @arsenal
     @arsenal.equipped = false
-
-    respond_to do |format|
-      if @arsenal.save
-        format.html { redirect_to @captain, notice: "#{@weapon.name} was successfully purchased." }
-        format.json { render :show, status: :created, location: @weapon }
-      else
-        format.html { render :new }
-        format.json { render json: @weapon.errors, status: :unprocessable_entity }
-      end
+    if @arsenal.save
+      message = "#{@weapon.name} was successfully purchased."
+      redirect_to @captain, notice: message
+    else
+      render :new
     end
   end
 
