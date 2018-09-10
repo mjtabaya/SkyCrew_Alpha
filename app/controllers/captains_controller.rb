@@ -17,7 +17,7 @@ class CaptainsController < ApplicationController
   end
 
   def show_captain_skyfarers
-    @captain = Captain.find(params[:id])
+    set_captain
     @captain.user_id = current_user.id if current_user
     @skyfarers = @captain.skyfarers
   end

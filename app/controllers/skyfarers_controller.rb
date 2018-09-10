@@ -1,6 +1,7 @@
 class SkyfarersController < ApplicationController
-  before_action :correct_captain,   only: [:show, :edit, :update, :destroy]
-
+  before_action :correct_captain,   only: %i[show edit update destroy]
+  before_action :set_skyfarer, only: %i[show edit update]
+  before_action :set_captain, only: %i[update]
   # GET /skyfarers
   # GET /skyfarers.json
   def index
@@ -10,7 +11,6 @@ class SkyfarersController < ApplicationController
   # GET /skyfarers/1
   # GET /skyfarers/1.json
   def show
-    @skyfarer = Skyfarer.find(params[:id])
   end
 
   # GET /skyfarers/new
@@ -20,42 +20,32 @@ class SkyfarersController < ApplicationController
 
   # GET /skyfarers/1/edit
   def edit
-    @skyfarer = Skyfarer.find(params[:id])
   end
 
   # POST /skyfarers
   # POST /skyfarers.json
   def create
     @skyfarer = Skyfarer.new(skyfarer_params)
-
-    respond_to do |format|
-      @skyfarer.captain_id = current_captain.id if current_captain
-      @skyfarer.set_stats
-      @skyfarer.state = "Healthy"
-
-      if @skyfarer.save
-        format.html { redirect_to current_captain, notice: 'Skyfarer was successfully created.' }
-        format.json { render :show, status: :created, location: @skyfarer }
-      else
-        format.html { render :new }
-        format.json { render json: @skyfarer.errors, status: :unprocessable_entity }
-      end
+    set_captain
+    @skyfarer.set_stats
+    @skyfarer.state = "Healthy"
+    if @skyfarer.save
+      message = "Skyfarer was successfully created."
+      redirect_to current_captain, notice: message
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /skyfarers/1
   # PATCH/PUT /skyfarers/1.json
   def update
-    respond_to do |format|
-      @skyfarer.captain_id = current_captain.id if current_captain
-      @skyfarer.set_stats
-      if @skyfarer.update(skyfarer_params)
-        format.html { redirect_to @skyfarer, notice: 'Skyfarer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @skyfarer }
-      else
-        format.html { render :edit }
-        format.json { render json: @skyfarer.errors, status: :unprocessable_entity }
-      end
+    @skyfarer.set_stats
+    if @skyfarer.update(skyfarer_params)
+      message = "Skyfarer was successfully updated."
+      redirect_to @skyfarer, notice: message
+    else
+      render :edit
     end
   end
 
@@ -87,6 +77,11 @@ class SkyfarersController < ApplicationController
         flash[:danger] = "Unable to access that."
         redirect_back(fallback_location: root_path)
       end
+    end
+
+    # Assigns captain to current skyfarer
+    def set_captain
+      @skyfarer.captain_id = current_captain.id if current_captain
     end
 
     # Set limit of recruitment, block multiple thread bypass
