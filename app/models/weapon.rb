@@ -1,5 +1,4 @@
 class Weapon < ApplicationRecord
-
   has_many :arsenals, :dependent => :destroy
   has_many :captains, through: :arsenals
   belongs_to :skyfarer, { :optional => true }
@@ -25,6 +24,4 @@ class Weapon < ApplicationRecord
   # Gun 1.2
   # Staff 0.6
   # Harp 0.5
-
-
 end

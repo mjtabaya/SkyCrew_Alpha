@@ -1,5 +1,4 @@
 class Skyfarer < ApplicationRecord
-
   belongs_to :captain
   has_one :arsenal, :dependent => :destroy
   has_one :weapon, through: :arsenals
@@ -63,5 +62,4 @@ class Skyfarer < ApplicationRecord
   def weapon_multiplier(skyfarer = self)
 
   end
-
 end

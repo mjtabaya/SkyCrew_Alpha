@@ -1,5 +1,4 @@
 class Captain < ApplicationRecord
-
   belongs_to :user
 
   has_many :skyfarers, :dependent => :destroy
@@ -15,5 +14,4 @@ class Captain < ApplicationRecord
     length: { within: 2..20 },
     format: { with: /\A\w+\s*\w+\z/i },
     presence: true
-
 end
